@@ -1,6 +1,5 @@
 package com.api.parkingcontrol.models;
 
-import jdk.jfr.DataAmount;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -15,7 +14,7 @@ public class ParkingSpotModel implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO) //gera os ID automáticos
     private UUID id;
-    @Column(nullable = false, unique = true, length = 10)//n]ap pode ser nulo, tem que ser único
+    @Column(nullable = false, unique = true, length = 10)//não pode ser nulo, tem que ser único
     private String parkingSpotNumber;
     @Column(nullable = false, unique = true, length = 7)
     private String licensePlateCar;
