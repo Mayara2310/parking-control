@@ -13,7 +13,7 @@ import java.util.UUID;
 @Service
 public class ParkingSpotService {
 
-    final ParkingSpotRepository parkingSpotRepository;
+    private final ParkingSpotRepository parkingSpotRepository;
 
     public ParkingSpotService(ParkingSpotRepository parkingSpotRepository) {
         this.parkingSpotRepository = parkingSpotRepository;
@@ -25,15 +25,15 @@ public class ParkingSpotService {
     }
 
     public boolean existByLicensePlateCar(String licensePlateCar) {
-        return parkingSpotRepository.existByLicensePlateCar(licensePlateCar);
+        return parkingSpotRepository.existsByLicensePlateCar(licensePlateCar);
     }
 
     public boolean existByParkingSpotNumber(String parkingSpotNumber) {
-        return parkingSpotRepository.existByParkingSpotNumber(parkingSpotNumber);
+        return parkingSpotRepository.existsByParkingSpotNumber(parkingSpotNumber);
     }
 
     public boolean existByApartmentAndBlock(String apartment, String block) {
-        return parkingSpotRepository.existByApartmentAndBlock(apartment, block);
+        return parkingSpotRepository.existsByApartmentAndBlock(apartment, block);
     }
 
     public List<ParkingSpotModel> findAll() {
@@ -48,6 +48,7 @@ public class ParkingSpotService {
 
     @Transactional
     public void delete(ParkingSpotModel parkingSpotModel) {
+
         parkingSpotRepository.delete(parkingSpotModel);
     }
 
